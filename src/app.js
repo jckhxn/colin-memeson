@@ -65,6 +65,11 @@ app.get('/:topText/:bottomText',async (req, res) => {
     res.sendFile(path.join(__dirname, '/public/test.png'));
   });
 
+  app.get('/:topText',async (req, res) => {
+    const response = await makeMeme(req.params.topText,"")
+    res.sendFile(path.join(__dirname, '/public/test.png'));
+  });
+
 
 
 app.use(middlewares.notFound);
