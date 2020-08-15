@@ -54,7 +54,7 @@ var dir = path.join(__dirname, 'public');
 
 app.get('/', (req, res) => {
 
-  res.send('')
+  res.sendFile(path.join(__dirname, '/public/index.html'));
     
  
 
