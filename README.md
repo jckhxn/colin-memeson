@@ -1,2 +1,2 @@
 Run locally with npm start.  
-Hit endpoints for /:topText or /:topText/:bottomText respectively for text generator.
+Hit endpoints for /gen/:topText or /gen/:topText/:bottomText respectively for text generator.
