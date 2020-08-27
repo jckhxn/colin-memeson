@@ -5,6 +5,7 @@ const fs = require('fs');
 var path = require("path")
 const cors = require('cors');
 
+ 
 
 const makeMeme = (topText,bottomText) => {
   
@@ -56,16 +57,24 @@ app.get('/', (req, res) => {
 
   res.sendFile(path.join(__dirname, '/public/index.html'));
     
- 
+  console.log(req.body);
 
 });
 
-app.get('/:topText/:bottomText',async (req, res) => {
+
+app.get('/:id',(req,res) => {
+    // Instead of hitting the endpoint with a random param, use random id here.
+    //  Discord Bot crafts URL -> adds ?{nanoid}, could be buggy.
+    res.sendFile(path.join(__dirname, '/public/test.png'));
+
+});
+
+app.get('/gen/:topText/:bottomText',async (req, res) => {
     const response = await makeMeme(req.params.topText,req.params.bottomText)
     res.sendFile(path.join(__dirname, '/public/test.png'));
   });
 
-  app.get('/:topText',async (req, res) => {
+  app.get('/gen/:topText',async (req, res) => {
     const response = await makeMeme(req.params.topText,"")
     res.sendFile(path.join(__dirname, '/public/test.png'));
   });
